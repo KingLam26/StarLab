@@ -6,3 +6,5 @@ def fun(x):
 x = minimize(fun, 10)
 
 print(x)
+
+##
