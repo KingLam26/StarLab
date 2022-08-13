@@ -105,7 +105,7 @@ def step2part3(PrismTilt):
 
     # set up parameters: prism to sample
     topPrismWindowDistance = 234.7
-    prismPrismDistance = 100                                                # can be varied in between optimization runs
+    prismPrismDistance = 120                                                # can be varied in between optimization runs
     prismCentralDistance = 45                                               # referring to the prism in this simulation
     windowThickness = 2.997
     bottomWindowSampleDistance = 231.703
