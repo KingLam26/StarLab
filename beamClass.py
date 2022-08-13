@@ -130,20 +130,29 @@ class Beam:
 
     def reflectBeam(self, surfaceType, surfaceEquation, closestFlag):
         point = self.propagateBeam(surfaceType, surfaceEquation, closestFlag)
+
         if surfaceType == 'cicle':
             normalEquation = lineEquationPoints(surfaceEquation, point)
         elif surfaceType == 'line':
             normalEquation = rotateLineAngle(surfaceEquation, np.pi / 2, point)
 
-        incidentAngle = lineLineAngle(self.beamEquation, normalEquation )
+        self.incidentAngle = lineLineAngle(self.beamEquation, normalEquation)
 
-        if lineGradient(normalEquation)[0] < 0:
-            return rotateLineAngle(normalEquation, -incidentAngle, point)
+        self.ExitAngle = self.incidentAngle
+        rotateAngle = 2*self.incidentAngle
+
+        reflectedLine1 = rotateLineAngle(self.beamEquation, rotateAngle, point)
+        reflectedLine2 = rotateLineAngle(self.beamEquation, -rotateAngle, point)
+
+        if lineLineAngle(self.beamEquation, normalEquation) > np.radians(45):
+            return max([reflectedLine1, reflectedLine2], key=lambda line: lineLineAngle(line, normalEquation))
         else:
-            return rotateLineAngle(normalEquation, incidentAngle, point)
+            return min([reflectedLine1, reflectedLine2], key=lambda line: lineLineAngle(line, normalEquation))
+
+
 
     def printBeam(self):
-        print('\n')
+        print('')
         for var in vars(self).keys():
             print(f"""{var}: {vars(self)[var]}""")
 

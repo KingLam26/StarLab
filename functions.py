@@ -108,7 +108,11 @@ def lineLineIntersection(line1, line2):
     A1, B1, C1, A2, B2, C2 = line1[0], line1[1], line1[2], line2[0], line2[1], line2[2]
 
     x = (B1*C2 - C1*B2) / (A1*B2 - A2*B1)
-    y = (- C1 - A1*x) / B1
+    
+    if B1 != 0:
+        y = (- C1 - A1*x) / B1
+    else:
+        y = (- C2 - A2*x) / B2
 
     return [x,y]
 

@@ -43,6 +43,7 @@ beam1.printBeam()
 beam2.printBeam()
 print(f'\nLensOnePos1: {LensOnePos1}')
 print(f'LensOnePos2: {LensOnePos2}')
+print(f'SourcesLensDistance: {SourcesLensDistance}')
 print(f'SourcesLensDistance: {SourcesLensDistance.x[0]}')
 
 
@@ -129,6 +130,7 @@ def step2part3(LensTwoPrismDistance):
 
 LensTwoPrismDistance = minimize(step2part3, 2, tol=1e-10, method = 'Nelder-Mead')
 
+print(f'LensTwoPrismDistance: {LensTwoPrismDistance}')
 print(f'LensTwoPrismDistance: {LensTwoPrismDistance.x[0]}')
 
 
