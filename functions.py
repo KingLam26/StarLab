@@ -207,6 +207,21 @@ def lineCircleIntersection(circleParameters, lineParameters):
 
     return [x1,y1], [x2,y2]
 
+def coorSysTransform(sysTwoOrigin, sysTwoCoor):
+    """ transforms planar coordinates, [x,y] 
+        from one orthogonal coordinate system to another,
+        assumes axes are mutually parallel
+
+    Args:
+        sysTwoOrigin (list of floats):              [x,y] planar coordinates of the second coordinate system origin relative to the first's
+        sysOneCoor, sysTwoCoor (list of floats):    [x,y] planar coordinates of the point of interest relative to coordinate system's origin
+
+    Returns:
+        (list of floats):                           [x,y] planar coordinates
+    """
+
+    return [sysTwoOrigin[0] + sysTwoCoor[0], sysTwoOrigin[1]+sysTwoCoor[1]]
+
 
 # =============== Functions for plano-convex lens =============== #
 

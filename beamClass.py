@@ -97,13 +97,35 @@ class Beam:
             return self.reflectBeam(surfaceType, surfaceEquation, closestFlag)
         else:
             self.ExitAngle = np.arcsin(np.sin(self.incidentAngle)*(RI1 / RI2))
-            if lineGradient(normalEquation)[0] == np.inf:
+
+        if lineGradient(normalEquation)[0] == 0:
+            if self.gradient > 0:
                 return rotateLineAngle(normalEquation, self.ExitAngle, point)
-            elif (lineGradient(normalEquation)[0] > 1e-10) or (lineGradient(normalEquation)[0] == 0):
+            else:
+                return rotateLineAngle(normalEquation, -self.ExitAngle, point)
+        elif lineGradient(normalEquation)[0] == np.inf:
+            if self.gradient > 0:
                 return rotateLineAngle(normalEquation, -self.ExitAngle, point)
             else:
                 return rotateLineAngle(normalEquation, self.ExitAngle, point)
-
+        elif lineGradient(normalEquation)[0] > 0:
+            if self.gradient > 0:
+                if self.gradient > lineGradient(normalEquation)[0]:
+                    return rotateLineAngle(normalEquation, self.ExitAngle, point)
+                else:
+                    return rotateLineAngle(normalEquation, -self.ExitAngle, point)
+            else:
+                return rotateLineAngle(normalEquation, -self.ExitAngle, point)
+        elif lineGradient(normalEquation)[0] < 0:
+            if self.gradient > 0:
+                return rotateLineAngle(normalEquation, self.ExitAngle, point)
+            else:
+                if self.gradient > lineGradient(normalEquation)[0]:
+                    return rotateLineAngle(normalEquation, self.ExitAngle, point)
+                else:
+                    return rotateLineAngle(normalEquation, -self.ExitAngle, point)
+        else:
+            raise Exception
 
 
     def reflectBeam(self, surfaceType, surfaceEquation, closestFlag):
