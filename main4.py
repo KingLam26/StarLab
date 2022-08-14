@@ -84,7 +84,7 @@ beamB5 = beamClass.Beam(LensTwoPosB2, functions.lineAngle(refractedBeam), 'beamB
 # =============== L12542-step2-part3.2 =============== #
 # set up parameters: prism related
 PrismLength = 25.4
-PrismTilt = np.radians(2.5)
+PrismTilt = 0.04698284
 LensTwoPrismDistance = 50                   # variable
 
 """
@@ -148,14 +148,15 @@ beamB10.printBeam()
 
 
 # define function
-def step2part3(LensTwoPrismDistance):
+def step2part3(var):
 
     global beamA5, beamA6, beamA7, beamA8, beamA9, beamA10
     global beamB5, beamB6, beamB7, beamB8, beamB9, beamB10
 
-    global targetSampleDistanceA, targetSampleDistanceB
+    global targetSampleDistanceA, targetSampleDistanceB, beamABDistance
 
-    LensTwoPrismDistance = LensTwoPrismDistance[0]
+    LensTwoPrismDistance = var[0]
+    PrismTilt = var[1]
 
     # calculating prism parameters
     PrismPosition = [SourcesLensDistance.x[0] + LensOneTwoDistance + LensTwoPrismDistance, 0]
@@ -244,9 +245,9 @@ def step2part3(LensTwoPrismDistance):
     beamABDistance = samplePosA[0] - samplePosB[0]
     # calculating distance between beamA and beamB on the horizontal sample line
 
-    return (np.abs(beamABDistance))
+    return (np.abs(beamABDistance) + np.abs(targetSampleDistanceA))
 
-LensTwoPrismDistance = minimize(step2part3, 40, tol=1e-10, method = 'Nelder-Mead')
+LensTwoPrismDistance = minimize(step2part3, (40,0.01), tol=1e-10, method = 'Nelder-Mead')
 
 beamA1.printBeam()
 beamA2.printBeam()
@@ -271,5 +272,6 @@ beamB9.printBeam()
 beamB10.printBeam()
 
 print(f'targetSampleDistanceA: {targetSampleDistanceA}')
+print(f'beamABDistance: {beamABDistance}')
 
 print(f'PrismTilt: {LensTwoPrismDistance}')
