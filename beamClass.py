@@ -18,7 +18,7 @@ class Beam:
         """
         self._name = name
         self._initialPos = initialPos
-        self._theta = theta
+        self.theta = theta
         self._gradient = self.beamGradient()
         self._intercept = self.beamintercept()
         self._beamEquation = lineEquationMC(self.gradient, self.intercept)     # [A,B,C]
@@ -26,6 +26,9 @@ class Beam:
         self.ExitAngle = np.nan
 
     def beamGradient(self):
+        while self.theta > np.pi:
+            self.theta -= np.pi
+
         if self.theta == np.pi / 2:
             return np.inf
         else:
@@ -91,6 +94,7 @@ class Beam:
             normalEquation = rotateLineAngle(surfaceEquation, np.pi / 2, point)
 
         self.incidentAngle = lineLineAngle(self.beamEquation, normalEquation)
+
 
         if self.incidentAngle > criticalAngle:
             print('attempt to refract failed, passed on to reflect beam')
@@ -163,10 +167,7 @@ class Beam:
     @property
     def initialPos(self):
         return self._initialPos
-    
-    @property
-    def theta(self):
-        return self._theta
+
 
     @property
     def gradient(self):
