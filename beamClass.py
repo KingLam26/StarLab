@@ -153,8 +153,6 @@ class Beam:
         else:
             return min([reflectedLine1, reflectedLine2], key=lambda line: lineLineAngle(line, normalEquation))
 
-
-
     def printBeam(self):
         print('')
         for var in vars(self).keys():
