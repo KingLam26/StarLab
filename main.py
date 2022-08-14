@@ -79,7 +79,10 @@ PrismTilt = np.radians(0)
 LensTwoPrismDistance = 50       # variable
 
 def step2part3(LensTwoPrismDistance):
+    global beam5, beam6, beam7, beam8, beam9, beam10
+
     LensTwoPrismDistance = LensTwoPrismDistance[0]
+    
     PrismPosition = [SourcesLensDistance.x[0] + LensOneTwoDistance + LensTwoPrismDistance, 0]
     PrismEntryCorner1 = [PrismPosition[0] - np.sin(PrismTilt)*PrismLength/2, PrismPosition[1] + np.cos(PrismTilt)*PrismLength/2]
     PrismEntryCorner2 = [PrismPosition[0] + np.sin(PrismTilt)*PrismLength/2, PrismPosition[1] - np.cos(PrismTilt)*PrismLength/2]
@@ -134,10 +137,9 @@ print(f'LensTwoPrismDistance: {LensTwoPrismDistance}')
 print(f'LensTwoPrismDistance: {LensTwoPrismDistance.x[0]}')
 
 
-"""
-print(f'prismSampleDistance: {prismSampleDistance}')
-print(f'topWindowSampleDistance: {topWindowSampleDistance}')
-print(f'windowThickmess: {windowThickmess}')
-print(f'prismTopWindowDistance: {prismTopWindowDistance}')
-print(f'bottomWindowSampleDistance: {bottomWindowSampleDistance}')
-"""
+beam5.printBeam()
+beam6.printBeam()
+beam7.printBeam()
+beam8.printBeam()
+beam9.printBeam()
+beam10.printBeam()
