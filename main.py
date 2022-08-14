@@ -54,7 +54,7 @@ LensTwoRadius = 216.9
 LensTwoEdgeThickness = 2
 LensTwoCentreThickness = functions.calculatePCLensCT(LensTwoFullHeight, LensTwoRadius, LensTwoEdgeThickness)
 
-LensOneTwoDistance = 30
+LensOneTwoDistance = 50
 LensTwoEntryEquation = [SourcesLensDistance.x[0] + LensOneTwoDistance + LensTwoRadius - LensTwoCentreThickness, 0, LensTwoRadius]
 LensTwoPos1 = beam3.propagateBeam('circle', LensTwoEntryEquation, closestFlag=True)
 refractedBeam = beam3.refractBeam('circle', LensTwoEntryEquation, closestFlag=True, RI1 = 1, RI2 = LensRI)
@@ -80,6 +80,7 @@ LensTwoPrismDistance = 50       # variable
 
 def step2part3(LensTwoPrismDistance):
     global beam5, beam6, beam7, beam8, beam9, beam10
+    global targetSampleDistance, samplePosition, targetPosition
 
     LensTwoPrismDistance = LensTwoPrismDistance[0]
     
@@ -106,11 +107,11 @@ def step2part3(LensTwoPrismDistance):
     beam8 = beamClass.Beam(PrismPos3, functions.lineAngle(refractedBeam), 'beam8')
 
     # set up parameters: prism to sample
-    prismSampleDistance = 400
+    prismSampleDistance = 430
     topWindowSampleDistance = 165.3
     windowThickmess = 2.997
     prismTopWindowDistance = prismSampleDistance - topWindowSampleDistance
-    bottomWindowSampleDistance = prismTopWindowDistance - windowThickmess
+    bottomWindowSampleDistance = prismSampleDistance - windowThickmess - prismTopWindowDistance
 
     windowPosition = [PrismPosition[0] + PrismLength/2, PrismPosition[1] -PrismLength/2 - prismTopWindowDistance]
     windowEntryLineEqn = [0, 1, -windowPosition[1]]
@@ -133,13 +134,15 @@ def step2part3(LensTwoPrismDistance):
 
 LensTwoPrismDistance = minimize(step2part3, 2, tol=1e-10, method = 'Nelder-Mead')
 
-print(f'LensTwoPrismDistance: {LensTwoPrismDistance}')
-print(f'LensTwoPrismDistance: {LensTwoPrismDistance.x[0]}')
-
-
 beam5.printBeam()
 beam6.printBeam()
 beam7.printBeam()
 beam8.printBeam()
 beam9.printBeam()
 beam10.printBeam()
+
+print(f'LensTwoPrismDistance: {LensTwoPrismDistance}')
+print(f'LensTwoPrismDistance: {LensTwoPrismDistance.x[0]}')
+
+print(f'samplePosition: {samplePosition}')
+print(f'targetPosition: {samplePosition}')

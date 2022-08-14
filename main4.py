@@ -200,14 +200,14 @@ def step2part3(var):
     # handling beamB at the prism
 
     # set up parameters: prism to sample
-    topPrismWindowDistance = 234.7
-    prismPrismDistance = 120                                                # can be varied in between optimization runs
+    #topPrismWindowDistance = 234.7
+    #prismPrismDistance = 120                                                # can be varied in between optimization runs
     prismCentralDistance = 45                                               # referring to the prism in this simulation
     windowThickness = 2.997
-    bottomWindowSampleDistance = 231.703
+    bottomWindowSampleDistance = 162.303
 
     # referring to the prism in this simulation
-    prismWindowDistance = topPrismWindowDistance - prismPrismDistance
+    prismWindowDistance = 114.7
     centralLineOriginDistance = SourcesLensDistance.x[0] + LensOneTwoDistance + LensTwoPrismDistance + prismCentralDistance
     # referring to the prism in this simulation
 
@@ -245,6 +245,12 @@ def step2part3(var):
     beamABDistance = samplePosA[0] - samplePosB[0]
     # calculating distance between beamA and beamB on the horizontal sample line
 
+    """
+    print(f'samplePosA: {samplePosA}')
+    print(f'samplePosB: {samplePosB}')
+    print(f'targetPosition: {targetPosition}')
+    """
+    
     return (np.abs(beamABDistance) + np.abs(targetSampleDistanceA))
 
 LensTwoPrismDistance = minimize(step2part3, (40,0.01), tol=1e-10, method = 'Nelder-Mead')
