@@ -4,16 +4,9 @@
     ├── StarLab/
         ├── beamClass.py            # support module, allows for the definition and manipulation of light beams
         ├── functions.py            # support module, handles line and circle geometry
-        ├── functions.py            # support module, handles line and circle geometry
-        ├── functions.py            # support module, handles line and circle geometry
-        ├── functions.py            # support module, handles line and circle geometry
-
-
-
-  ├── main.py           LSDS
-  ├── main4.py          Horiba
-  ├── main5.py          EQ-77
-  ├── README.md
+        ├── main.py                 # LSDS
+        ├── main4.py                # Horiba
+        ├── main5.py                # EQ-77
 
 While it is certain that one could find existing optics simulation software that are more powerful and comprehensive than what is hastily put together here, they are often too complicated for our purpose, and the effort needed to properly understand them to obtain meaningful results is non-trivial. 
 
