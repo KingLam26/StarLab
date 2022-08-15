@@ -253,7 +253,7 @@ def step2part3(var):
     
     return (np.abs(beamABDistance) + np.abs(targetSampleDistanceA))
 
-LensTwoPrismDistance = minimize(step2part3, (40,0.01), tol=1e-10, method = 'Nelder-Mead')
+variables = minimize(step2part3, (40,0.01), tol=1e-10, method = 'Nelder-Mead')
 
 beamA1.printBeam()
 beamA2.printBeam()
@@ -280,4 +280,4 @@ beamB10.printBeam()
 print(f'targetSampleDistanceA: {targetSampleDistanceA}')
 print(f'beamABDistance: {beamABDistance}')
 
-print(f'PrismTilt: {LensTwoPrismDistance}')
+print(f'variables: {variables}')
