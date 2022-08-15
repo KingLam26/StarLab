@@ -1,11 +1,12 @@
 # StarLab Optics
 
-├── StarLab/
-    ├── beamClass.py            # support module, allows for the definition and manipulation of light beams
-    ├── functions.py            # support module, handles line and circle geometry
-    ├── functions.py            # support module, handles line and circle geometry
-    ├── functions.py            # support module, handles line and circle geometry
-    ├── functions.py            # support module, handles line and circle geometry
+    .
+    ├── StarLab/
+        ├── beamClass.py            # support module, allows for the definition and manipulation of light beams
+        ├── functions.py            # support module, handles line and circle geometry
+        ├── functions.py            # support module, handles line and circle geometry
+        ├── functions.py            # support module, handles line and circle geometry
+        ├── functions.py            # support module, handles line and circle geometry
 
 
 
