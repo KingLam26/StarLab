@@ -1,5 +1,13 @@
 # StarLab Optics
-.
+
+    .
+    ├── ...
+    ├── test                    # Test files (alternatively `spec` or `tests`)
+    │   ├── benchmarks          # Load and stress tests
+    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+    │   └── unit                # Unit tests
+    └── ...
+
 ├── StarLab/
   ├── beamClass.py      support module, allows for the definition and manipulation of light beams
   ├── functions.py      support module, handles line and circle geometry
