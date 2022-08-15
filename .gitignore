@@ -6,3 +6,6 @@ results/main3-results
 results/main4-results
 results/main4-results-2
 results/main5-results
+__pycache__/beamClass.cpython-38.pyc
+__pycache__/functions.cpython-38.pyc
+__pycache__/support.cpython-38.pyc
