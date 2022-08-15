@@ -1,6 +1,4 @@
 # StarLab Optics
-
-<<<<<<< HEAD
 =======
     .
     ├── StarLab/
