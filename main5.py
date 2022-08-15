@@ -109,8 +109,8 @@ beamB1.refractBeam('line', [1,0,sld], closestFlag=True, RI1 = 1, RI2 = LensRI)
 
 beamB2 = beamClass.Beam(LensOnePosB1, -(np.pi - beamA1.ExitAngle), 'beamB2')
 LensOnePosB2 = beamB2.propagateBeam('circle', [-sld + (LensOneRadius - LensOneCentreThickness), 0, LensOneRadius], closestFlag=True)
-refracted = beamB2.refractBeam('circle', [-sld + (LensOneRadius - LensOneCentreThickness),0,LensOneRadius], closestFlag=True, RI1 = LensRI, RI2 = 1)
-beamB3 = beamClass.Beam(LensOnePosB2, functions.lineAngle(refracted), 'beamB3')
+refractedBeam = beamB2.refractBeam('circle', [-sld + (LensOneRadius - LensOneCentreThickness),0,LensOneRadius], closestFlag=True, RI1 = LensRI, RI2 = 1)
+beamB3 = beamClass.Beam(LensOnePosB2, functions.lineAngle(refractedBeam), 'beamB3')
 
 LensTwoPosB1 = beamB3.propagateBeam('line', LensTwoEntryEquation, closestFlag=True)
 refractedBeam = beamB3.refractBeam('line', LensTwoEntryEquation, closestFlag=True, RI1 = 1, RI2 = LensRI)
@@ -128,71 +128,6 @@ LensThreePosB2 = beamB6.propagateBeam('line', LensThreeExitEquation, closestFlag
 refractedBeam = beamB6.refractBeam('line', LensThreeExitEquation, closestFlag=True,RI1 = LensRI, RI2 = 1)
 beamB7 = beamClass.Beam(LensThreePosB2, functions.lineAngle(refractedBeam), 'beamB7')
 
-"""
-LensThreePrismDistance = 50                 # variable 2
-PrismTilt = np.radians(2.319)                              # variable 1
-
-# set up parameters: prism related
-PrismLength = 25.4
-
-PrismPosition = [-(SourcesLensDistance.x[0] + LensOneTwoDistance.x[0] + LensTwoThreeDistance + LensThreePrismDistance), 0]
-PrismEntryCorner1 = [PrismPosition[0] - np.sin(PrismTilt)*PrismLength/2, -(PrismPosition[1] + np.cos(PrismTilt)*PrismLength/2)]
-PrismEntryCorner2 = [PrismPosition[0] + np.sin(PrismTilt)*PrismLength/2, -(PrismPosition[1] - np.cos(PrismTilt)*PrismLength/2)]
-PrismExitCorner1 = PrismEntryCorner1
-PrismExitCorner2 = [-(np.abs(PrismExitCorner1[0]) + np.cos(PrismTilt)*PrismLength), -(np.abs(PrismExitCorner1[1]) - np.sin(PrismTilt)*PrismLength) ]
-
-PrismEntryLineEqn = functions.lineEquationPoints(PrismEntryCorner1, PrismEntryCorner2)
-PrismExitLineEqn = functions.lineEquationPoints(PrismExitCorner1, PrismExitCorner2)
-PrismHypotenusEqn = functions.lineEquationPoints(PrismEntryCorner2, PrismExitCorner2)
-# set up parameters: prism related
-
-# propogate beam A: E3 to prism
-prismPosA1 = beamA7.propagateBeam('line', PrismEntryLineEqn, closestFlag=True)
-refractedBeam = beamA7.refractBeam('line', PrismEntryLineEqn, closestFlag=True, RI1 = 1, RI2 = PrismRI)
-beamA8 = beamClass.Beam(prismPosA1, functions.lineAngle(refractedBeam), 'beamA8')
-
-prismPosA2 = beamA8.propagateBeam('line', PrismHypotenusEqn, closestFlag=True)
-reflectedBeam = beamA8.reflectBeam('line', PrismHypotenusEqn, closestFlag=True)
-beamA9 = beamClass.Beam(prismPosA2, functions.lineAngle(reflectedBeam), 'beamA9')
-
-prismPosA3 = beamA9.propagateBeam('line', PrismExitLineEqn, closestFlag=True)
-refractedBeam = beamA9.refractBeam('line', PrismExitLineEqn, closestFlag=True, RI1 = PrismRI, RI2 = 1)
-beamA10 = beamClass.Beam(prismPosA3, functions.lineAngle(refractedBeam), 'beamA10')
-# propogate beam A: E3 to prism
-
-# set up parameters: prism to sample and target
-topPrismWindowDistance = 264.7
-prismPrismDistance = 65                                                  # can be varied in between optimization runs, between lower surface of top prism
-prismCentralDistance = 45                                                # referring to the prism in this simulation
-windowThickness = 2.997
-bottomWindowSampleDistance = 162.303
-
-# referring to the prism in this simulation
-prismWindowDistance = topPrismWindowDistance - prismPrismDistance
-centralLineOriginDistance = np.abs(PrismPosition[0]) + 45
-# referring to the prism in this simulation
-
-centralLineEqn = [1, 0, centralLineOriginDistance]
-windowEntryLineEqn = [0, 1, prismWindowDistance]
-windowExitLineEqn = [0, 1, prismWindowDistance + windowThickness]
-targetHoriztonalLineEqn = [0, 1, (windowExitLineEqn[2] + bottomWindowSampleDistance)]
-
-targetPosition = functions.lineLineIntersection(centralLineEqn, targetHoriztonalLineEqn)
-# set up parameters: prism to sample and target
-
-# propogate beam A: prism to sample
-windowPosA1 = beamA10.propagateBeam('line', windowEntryLineEqn, closestFlag=True )
-refractedBeam = beamA10.refractBeam('line', windowEntryLineEqn, closestFlag=True, RI1 = 1, RI2 = WindowsRI)
-beamA11 = beamClass.Beam(windowPosA1, functions.lineAngle(refractedBeam), 'beamA11')
-windowPosA2 = beamA11.propagateBeam('line', windowExitLineEqn, closestFlag=True)
-refractedBeam = beamA11.refractBeam('line', windowExitLineEqn, closestFlag=True, RI1 = WindowsRI, RI2 = 1)
-beamA12 = beamClass.Beam(windowPosA2, functions.lineAngle(refractedBeam), 'beamA12')
-samplePosA = beamA12.propagateBeam('line', targetHoriztonalLineEqn, closestFlag=True)
-# propogate beam A: prism to sample
-
-print(samplePosA)
-"""
-
 # =============== EQ-step2-part4.2 =============== #
 def step2part4(var):
     
@@ -200,8 +135,10 @@ def step2part4(var):
     global beamB7, beamB8, beamB9, beamB10, beamB11, beamB12
     global targetSampleDistanceA, beamABDistance
 
-    LensThreePrismDistance = var[0]                 # variable 2
-    PrismTilt = np.radians(2.31863993)                              # variable 1
+    # variables 1 and 2
+    LensThreePrismDistance = var[0]
+    PrismTilt = var[1]
+    # variables 1 and 2
 
     # set up parameters: prism related
     PrismLength = 25.4
@@ -281,7 +218,7 @@ def step2part4(var):
     windowPosB1 = beamB10.propagateBeam('line', windowEntryLineEqn, closestFlag=True )
     refractedBeam = beamB10.refractBeam('line', windowEntryLineEqn, closestFlag=True, RI1 = 1, RI2 = WindowsRI)
     beamB11 = beamClass.Beam(windowPosB1, functions.lineAngle(refractedBeam), 'beamB11')
-    windowPosB2 = beamA11.propagateBeam('line', windowExitLineEqn, closestFlag=True)
+    windowPosB2 = beamB11.propagateBeam('line', windowExitLineEqn, closestFlag=True)
     refractedBeam = beamB11.refractBeam('line', windowExitLineEqn, closestFlag=True, RI1 = WindowsRI, RI2 = 1)
     beamB12 = beamClass.Beam(windowPosB2, functions.lineAngle(refractedBeam), 'beamB12')
     samplePosB = beamB12.propagateBeam('line', targetHoriztonalLineEqn, closestFlag=True)
@@ -293,9 +230,9 @@ def step2part4(var):
     beamABDistance = samplePosA[0] - samplePosB[0]
     # handling the target and sample positions
 
-    return (np.abs(beamABDistance))
+    return (np.abs(beamABDistance) + np.abs(targetSampleDistanceA))
 
-var = minimize(step2part4, (100), tol=1e-10, method = 'Nelder-Mead')
+var = minimize(step2part4, (100, 0.01), tol=1e-10, method = 'Nelder-Mead')
 
 beamA1.printBeam()
 beamA2.printBeam()
