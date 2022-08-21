@@ -229,18 +229,19 @@ def coorSysTransform(sysTwoOrigin, sysTwoCoor):
 
 # =============== Functions for plano-convex lens =============== #
 
-def calculatePCLensCT(full_h, radius, edge_t):
+def calculatePCLensCT(full_h, radius, edge_t, type):
     """ for a plano-convex lens, calculate its center thickness
 
     Args:
         full_h (float): full height of the plano-convex lens
         radius (float): radius of the plano-convex lens
         edge_t (float): edge thickness of the plano-convex lens
+        type (string):  'concave' or 'convex'
 
     Returns:
         float: centre thickness of the plano-convex lens
     """
-    
+
     length = np.sqrt( (full_h / 2)**2 + (edge_t)**2)
     angle = np.pi / 2 + np.arctan(edge_t / (full_h / 2) )
     a = 1
@@ -253,6 +254,11 @@ def calculatePCLensCT(full_h, radius, edge_t):
     tc1, tc2 = radius - x1, radius - x2
 
     if tc1 > 0:
-        return tc1
+        tc = tc1
     else:
-        return tc2
+        tc = tc2
+    
+    if type == 'convex':
+        return tc
+    elif type == 'concave':
+        return edge_t - np.abs(edge_t - tc)

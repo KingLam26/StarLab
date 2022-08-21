@@ -157,6 +157,8 @@ class Beam:
         print('')
         for var in vars(self).keys():
             print(f"""{var}: {vars(self)[var]}""")
+        print(f'incidentAngle (deg) = {self.incidentAngle / np.pi * 180}')
+        print(f'ExitAngle (deg) = {self.ExitAngle / np.pi * 180}')
 
     @property
     def name(self):
