@@ -1,6 +1,6 @@
 # StarLab Optics
 
-<<<<<<< HEAD
+<<<<<
 =======
     .
     ├── StarLab/
@@ -17,4 +17,3 @@ StarLab Optics seeks to use simple geometry and basic principles of refraction a
 An optimization module from Scipy is used to solve for the positions of certain pieces of optics while targetting a particular desired parameter.
 
 For definitions of the syntax in the mainX.py files used to describe the beam positions and angles, please kindly refer to Star Lab Update 2.2, dated 15 Aug 2022.
->>>>>>> 3ef88e97f5263cb0e6e5a6d5ca0b956e4ea495d2
