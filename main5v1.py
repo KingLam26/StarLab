@@ -17,7 +17,7 @@ sysTwoOrigin = []
 LensOneFullHeight = 12.7
 LensOneRadius = 8.7
 LensOneEdgeThickness = 1.5
-LensOneCentreThickness = functions.calculatePCLensCT(LensOneFullHeight, LensOneRadius, LensOneEdgeThickness)
+LensOneCentreThickness = functions.calculatePCLensCT(LensOneFullHeight, LensOneRadius, LensOneEdgeThickness, type = 'convex')
 clearApertureRadius = 0.9*LensOneFullHeight/2
 
 # define function
@@ -51,7 +51,7 @@ print(f'SourcesLensDistance: {SourcesLensDistance.x[0]}')
 LensTwoFullHeight = 25.4
 LensTwoRadius = 21.7
 LensTwoEdgeThickness = 2
-LensTwoCentreThickness = functions.calculatePCLensCT(LensTwoFullHeight, LensTwoRadius, LensTwoEdgeThickness)
+LensTwoCentreThickness = functions.calculatePCLensCT(LensTwoFullHeight, LensTwoRadius, LensTwoEdgeThickness, type = 'convex')
 
 def step2part2(LensOneTwoDistance):
 
@@ -85,7 +85,7 @@ print(LensOneTwoDistance)
 LensThreeFullHeight = 25.4
 LensThreeRadius = 216.9
 LensThreeEdgeThickness = 2
-LensThreeCentreThickness = functions.calculatePCLensCT(LensThreeFullHeight, LensThreeRadius, LensThreeEdgeThickness)
+LensThreeCentreThickness = functions.calculatePCLensCT(LensThreeFullHeight, LensThreeRadius, LensThreeEdgeThickness, type = 'convex')
 
 LensTwoThreeDistance = 50
 LensThreeEntryEquation = [-(SourcesLensDistance.x[0] + LensOneTwoDistance.x[0] + LensTwoThreeDistance + LensThreeRadius - LensThreeCentreThickness), 0, LensThreeRadius]
@@ -191,7 +191,7 @@ def step2part4(var):
 
     # referring to the prism in this simulation
     # prismWindowDistance = topPrismWindowDistance - prismPrismDistance
-    prismWindowDistance = 199.7
+    prismWindowDistance = 147.4
     prismCentralDistance = 45
     centralLineOriginDistance = np.abs(PrismPosition[0]) + prismCentralDistance
     # referring to the prism in this simulation
