@@ -70,7 +70,7 @@ print(f'LensOneTwoDistance: {LensOneTwoDistance}')
 LensTwoThreeDistance = 50
 
 LensThreeFullHeight = 25.4
-LensThreeRadius = 216.9
+LensThreeRadius = 325.4
 LensThreeEdgeThickness = 2
 LensThreeCentreThickness = functions.calculatePCLensCT(LensThreeFullHeight, LensThreeRadius, LensThreeEdgeThickness, 'convex')
 

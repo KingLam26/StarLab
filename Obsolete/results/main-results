@@ -1,0 +1,122 @@
+Last login: Sun Aug 14 16:30:34 on ttys002
+Kings-MacBook-Pro:~ kinglam$ cd Documents/
+Kings-MacBook-Pro:Documents kinglam$ cd SOURCE/OPS/X-FACTOR/ALIEN/Rimmer/StarLab/
+Kings-MacBook-Pro:StarLab kinglam$ python3 main.py 
+
+_name: beam1
+_initialPos: [0, 0.3]
+theta: 0.20943951023931956
+_gradient: 0.21255656167002213
+_intercept: 0.3
+_beamEquation: [1, -4.704630109478455, 1.4113890328435363]
+incidentAngle: 0.20943951023931953
+ExitAngle: 0.1455000682301448
+
+_name: beam2
+_initialPos: [14.480728462617874, 3.3779738524912806]
+theta: 0.1455000682301448
+_gradient: 0.14653559665087768
+_intercept: 1.2560316672822238
+_beamEquation: [1, -6.824280399134066, 8.571512287725762]
+incidentAngle: 0.31525516705685924
+ExitAngle: 0.460755235287724
+
+LensOnePos1: [14.480728462617874, 3.3779738524912806]
+LensOnePos2: [17.826407889986182, 3.8682349835832626]
+SourcesLensDistance:  final_simplex: (array([[14.48072846],
+       [14.48072846]]), array([5.16316150e-13, 7.19546985e-13]))
+           fun: 5.163161497655633e-13
+       message: 'Optimization terminated successfully.'
+          nfev: 86
+           nit: 43
+        status: 0
+       success: True
+             x: array([14.48072846])
+SourcesLensDistance: 14.480728462524741
+
+_name: beam3
+_initialPos: [17.826407889986182, 3.8682349835832626]
+theta: 3.1415926535890737
+_gradient: -7.195469846370162e-13
+_intercept: 3.8682349835960896
+_beamEquation: [1, 1389763311292.954, -5375931059661.747]
+incidentAngle: 0.017835131704646602
+ExitAngle: 0.012436991599994977
+
+_name: beam4
+_initialPos: [42.1430981115256, 3.868234983565765]
+theta: 3.136194513484422
+_gradient: -0.005398192539766765
+_intercept: 4.095731541394061
+_beamEquation: [1, 185.24719017213977, -758.7227597426568]
+incidentAngle: 0.005398140105371441
+ExitAngle: 0.007740972625844057
+
+LensTwoPos1: [42.1430981115256, 3.868234983565765]
+LensTwoPos2: [44.48072846252474, 3.8556160048442685]
+LensOneTwoDistance: 30
+LensTwoPrismDistance:  final_simplex: (array([[11.89953099],
+       [11.89953099]]), array([1.81987737e-13, 5.93632836e-13]))
+           fun: 1.8198773652309366e-13
+       message: 'Optimization terminated successfully.'
+          nfev: 84
+           nit: 42
+        status: 0
+       success: True
+             x: array([11.89953099])
+LensTwoPrismDistance: 11.899530992656963
+
+_name: beam5
+_initialPos: [44.48072846252474, 3.8556160048442685]
+theta: 3.133851680963949
+_gradient: -0.007741127249433253
+_intercept: 4.19994698402016
+_beamEquation: [1, 129.18015268037513, -542.5497926452053]
+incidentAngle: 0.007740972625844067
+ExitAngle: 0.005398140105371448
+
+_name: beam6
+_initialPos: [56.38025945508857, 3.7635002212222575]
+theta: 3.136194513484422
+_gradient: -0.005398192539766765
+_intercept: 4.0678517172028315
+_beamEquation: [1, 185.24719017213977, -753.5581006487382]
+incidentAngle: 0.79079630350282
+ExitAngle: 0.79079630350282
+
+_name: beam7
+_initialPos: [65.36526200761513, 3.7149974474734235]
+theta: 1.5761944669002732
+_gradient: -185.24719017196318
+_intercept: 12112.446119212354
+_beamEquation: [1, 0.00539819253977191, -65.38531627912135]
+incidentAngle: 0.0053981401053764255
+ExitAngle: 0.007740972625851205
+
+_name: beam8
+_initialPos: [65.45387332437646, -12.700000000000278]
+theta: 1.578537299420753
+_gradient: -129.1801526801707
+_intercept: 8442.641349551503
+_beamEquation: [1, 0.007741127249445504, -65.3555610083085]
+incidentAngle: 0.007740972625856157
+ExitAngle: 0.005305641969674719
+
+_name: beam9
+_initialPos: [67.27071588982132, -247.40000000000023]
+theta: 1.5761019687645739
+_gradient: -188.47683700080472
+_intercept: 12431.571753693297
+_beamEquation: [1, 0.005305691754556187, -65.95808774974412]
+incidentAngle: 0.0053056419696770885
+ExitAngle: 0.007740972625859614
+
+_name: beam10
+_initialPos: [67.28661704800973, -250.39700000000033]
+theta: 1.578537299420753
+_gradient: -129.1801526801707
+_intercept: 8441.698463594072
+_beamEquation: [1, 0.007741127249445504, -65.3482620081303]
+incidentAngle: nan
+ExitAngle: nan
+Kings-MacBook-Pro:StarLab kinglam$ 

@@ -1,0 +1,139 @@
+Last login: Sun Aug 14 13:13:28 on ttys002
+Kings-MacBook-Pro:~ kinglam$ cd Documents/SOURCE/OPS/X-FACTOR/ALIEN/Rimmer/StarLab/
+Kings-MacBook-Pro:StarLab kinglam$ ls
+README.md	beamClass.py	main.py		main3-results	test.py
+__pycache__	functions.py	main2.py	main3.py
+Kings-MacBook-Pro:StarLab kinglam$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   __pycache__/beamClass.cpython-38.pyc
+	modified:   beamClass.py
+	deleted:    main3.1.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	main3-results
+	main3.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Kings-MacBook-Pro:StarLab kinglam$ git add --all
+Kings-MacBook-Pro:StarLab kinglam$ git commit -m "base line complete"
+[main e8918c7] base line complete
+ 6 files changed, 308 insertions(+), 75 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 main3-results
+ delete mode 100644 main3.1.py
+ create mode 100644 main3.py
+Kings-MacBook-Pro:StarLab kinglam$ git push origin main
+load pubkey "/Users/kinglam/.ssh/id_rsa": invalid format
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 4.35 KiB | 4.35 MiB/s, done.
+Total 8 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:KingLam26/StarLab.git
+   df77a05..e8918c7  main -> main
+Kings-MacBook-Pro:StarLab kinglam$ clear
+
+Kings-MacBook-Pro:StarLab kinglam$ python3 main2.py 
+
+_name: beam1
+_initialPos: [0, 0]
+theta: 0.24434609527920614
+_gradient: 0.2493280028431807
+_intercept: 0.0
+_beamEquation: [1, -4.010780933535845, 0.0]
+incidentAngle: 0.24434609527920614
+ExitAngle: 0.16951492917588468
+
+_name: beam2
+_initialPos: [15.520513614546534, 3.8696986626152827]
+theta: 0.16951492917588468
+_gradient: 0.1711574997550656
+_intercept: 1.2132463574350418
+_beamEquation: [1, -5.84257190851144, 7.0884790860538045]
+incidentAngle: 0.35990294573713677
+ExitAngle: 0.529417874911772
+SourcesLensDistance: 15.520513614639666
+
+_name: beam3
+_initialPos: [18.58243602746573, 4.39376964725453]
+theta: 1.2495382230751113e-12
+_gradient: 1.2495382230751113e-12
+_intercept: 4.39376964723131
+_beamEquation: [1, -800295646450.0957, 3516314720183.7905]
+incidentAngle: 0.020258507150870846
+ExitAngle: 0.014126774937540025
+
+_name: beam4
+_initialPos: [63.19289423811131, 4.393769647310273]
+theta: 3.135460921377711
+_gradient: -0.006131809060479718
+_intercept: 4.78125640875746
+_beamEquation: [1, 163.08400834675788, -779.7464600737912]
+incidentAngle: 0.006131732212082087
+ExitAngle: 0.008792962198699718
+
+_name: beam5
+_initialPos: [65.52051361463967, 4.379497129727928]
+theta: 3.132799691391094
+_gradient: -0.008793188818469503
+_intercept: 4.955631377424556
+_beamEquation: [1, 113.7243860724982, -563.5761359992163]
+incidentAngle: 0.05577579894269094
+ExitAngle: 0.03888489209629667
+
+_name: beam6
+_initialPos: [115.33519592758827, 3.941467222218097]
+theta: 0.008097944647695216
+_gradient: 0.00809812166452104
+_intercept: 3.0074687733951158
+_beamEquation: [1, -123.48542556246524, 371.3785613485212]
+incidentAngle: 0.8242830554937414
+ExitAngle: 0.8242830554937414
+
+_name: beam7
+_initialPos: [124.45032949789858, 4.01528268285883]
+theta: 1.6566640556351846
+_gradient: -11.61718201811481
+_intercept: 1449.7774126743095
+_beamEquation: [1, 0.08607939502374053, -124.79596260208838]
+incidentAngle: 0.03888489209629108
+ExitAngle: 0.05577579894268291
+
+_name: beam8
+_initialPos: [125.84857851618311, -12.228430669202782]
+theta: 1.6735549624815764
+_gradient: -9.697265188549295
+_intercept: 1208.1586088041925
+_beamEquation: [1, 0.10312185761206345, -124.5875600298946]
+incidentAngle: 0.10275863568667987
+ExitAngle: 0.07036503367942769
+
+_name: beam9
+_initialPos: [136.41563709799829, -114.70000000000003]
+theta: 1.6411613604743343
+_gradient: -14.188141326896568
+_intercept: 1820.784338345034
+_beamEquation: [1, 0.07048139548090716, -128.3314210363382]
+incidentAngle: 0.0703650336794377
+ExitAngle: 0.10275863568669452
+SourcesLensDistance:  final_simplex: (array([[0.04698284],
+       [0.04698284]]), array([9.55253654e-11, 1.16813226e-10]))
+           fun: 9.552536539558787e-11
+       message: 'Optimization terminated successfully.'
+          nfev: 80
+           nit: 40
+        status: 0
+       success: True
+             x: array([0.04698284])
+Kings-MacBook-Pro:StarLab kinglam$ 
