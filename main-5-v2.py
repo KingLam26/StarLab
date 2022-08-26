@@ -31,7 +31,7 @@ def step2part1(SourcesLensDistance):
 
     sld = SourcesLensDistance[0]
 
-    beamA1 = beamClass.Beam([0, 0], np.radians(14), 'beamA1')
+    beamA1 = beamClass.Beam([0, 0], np.radians(14.361071 / 2), 'beamA1')
     LensOnePosA1 = beamA1.propagateBeam('line', [1,0,-sld], closestFlag=True)
     beamA1.refractBeam('line', [1,0,-sld], closestFlag=True, RI1 = 1, RI2 = LensRI)
 
@@ -69,7 +69,7 @@ beamA5 = beamClass.Beam(LensTwoPosA2, functions.lineAngle(refractedBeam), 'beamA
 # =============== L12542-step2-part3.1 =============== #
 # it is at this point, that we need to build the other beam, up to beam B4...
 
-beamB1 = beamClass.Beam([0, 0], np.radians(-14), 'beamB1')
+beamB1 = beamClass.Beam([0, 0], np.radians(-14.361071 / 2), 'beamB1')
 LensOnePosB1 = beamB1.propagateBeam('line', [1,0,-sld], closestFlag=True)
 beamB1.refractBeam('line', [1,0,-sld], closestFlag=True, RI1 = 1, RI2 = LensRI)
 
@@ -163,7 +163,7 @@ def step2part3(var):
     bottomWindowSampleDistance = 162.303
 
     # referring to the Mirror in this simulation
-    MirrorWindowDistance = 100.60990
+    MirrorWindowDistance = 188.10990
     centralLineOriginDistance = SourcesLensDistance.x[0] + LensOneTwoDistance + LensTwoMirrorDistance + MirrorCentralDistance
     # referring to the Mirror in this simulation
 
