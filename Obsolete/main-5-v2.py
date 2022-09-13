@@ -1,5 +1,5 @@
 """
-For Horiba Xe
+For EQ-77
 """
 
 # =============== import libraries =============== #
