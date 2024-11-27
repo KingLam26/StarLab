@@ -16,6 +16,6 @@ An optimization module from Scipy is used to solve for the positions of certain 
         ├── beamClass.py            # support module, allows for the definition and manipulation of light beams
         ├── functions.py            # support module, handles line and circle geometry
         ├── main-1.py               # LSDS
-        ├── main-14.py              # Horiba
-        ├── main-15.py              # EQ-77
+        ├── main-4.py               # Horiba
+        ├── main-5.py               # EQ-77
 ```
